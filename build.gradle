@@ -1,0 +1,50 @@
+plugins {
+    id 'scala'
+    id 'java'
+}
+
+
+group = 'net.ks'
+version = '0.0.1-SNAPSHOT'
+//sourceCompatibility = '11'
+
+jar {
+    archivesBaseName = 'redis'
+
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+
+    manifest {
+        attributes("Implementation-Title": archivesBaseName,
+                "Built-Date": new Date())
+    }
+}
+
+test {
+
+    jvmArgs '-Dprofiles.active=test'
+
+}
+
+repositories {
+    mavenCentral()
+    //maven { url "https://artifactory.vasdev.kyivstar.ua:443/artifactory/virtual" }
+}
+
+
+dependencies {
+    implementation group: 'org.scala-lang', name: 'scala-library', version: '2.12.16'
+    //for application.conf
+    implementation group: 'com.typesafe', name: 'config', version: '1.4.2'
+    //for redis
+    implementation group: 'com.github.etaty', name: 'rediscala_2.12', version: '1.9.0'
+    //for test
+    testImplementation('junit:junit:4.13.1')
+    testImplementation('org.scalatest:scalatest_2.12:3.0.5')
+    testImplementation('org.scalamock:scalamock_2.12:4.4.0')
+    testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.8.2")
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

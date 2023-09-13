@@ -1,0 +1,12 @@
+{
+  "subscriberId": "380670067143",
+  "eventId": 101,
+  "subscriberType": 0,
+  "eventTime": "2021-09-01 12:59:59",
+  "params": {
+    "key1": "99999",
+    "key2": "value2",
+    "keyN": "valueN"
+  },
+  "cid": "43caecf1-3f3c-4afe-b5e1-6642f3e07c95"
+}
