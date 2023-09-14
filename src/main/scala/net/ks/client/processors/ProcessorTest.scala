@@ -1,14 +1,15 @@
-package net.ks
+package net.ks.client.processors
 
-import redis.{RedisBlockingClient, RedisClient, SentinelClient, SentinelMonitoredRedisBlockingClient, SentinelMonitoredRedisClient}
+import akka.actor.ActorSystem
+import redis.{RedisClient, SentinelClient, SentinelMonitoredRedisClient}
 
 import java.util.concurrent.TimeUnit
-import scala.concurrent.{Await, Future}
-import scala.concurrent.duration._
 import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.duration._
+import scala.concurrent.{Await, Future}
 
 object ProcessorTest extends App {
-  implicit val akkaSystem = akka.actor.ActorSystem()
+  implicit val akkaSystem: ActorSystem = akka.actor.ActorSystem()
   //SDPlite-dgt3-DB.kyivstar.ua 10.49.197.173:26379
   //SDPlite-lv3-DB.kyivstar.ua 10.49.197.172:26379
   //SDPlite-whg3-DB.kyivstar.ua 10.49.0.85:26379

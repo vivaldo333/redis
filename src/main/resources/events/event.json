@@ -6,7 +6,7 @@
   "params": {
     "key1": "99999",
     "key2": "value2",
-    "keyN": "valueN"
+    "keyN": null
   },
   "cid": "43caecf1-3f3c-4afe-b5e1-6642f3e07c95"
 }
